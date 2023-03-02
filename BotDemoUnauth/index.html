@@ -59,6 +59,31 @@
                     Question_1_Demo__c: 'Answer 1',
                     Age_Range__c: '0 - 14'
                 };
+
+                embedded_svc.settings.extraPrechatInfo = [{
+                    "entityName": "Case",
+                    "showOnCreate": true,
+                    "saveToTranscript": "CaseId",
+                    "entityFieldMaps": [{
+                      "isExactMatch": false,
+                      "fieldName": "Subject",
+                      "doCreate": false,
+                      "doFind": false,
+                      "label": "issue"
+                    }, {
+                      "isExactMatch": false,
+                      "fieldName": "Status",
+                      "doCreate": false,
+                      "doFind": false,
+                      "label": "Status"
+                    }, {
+                      "isExactMatch": false,
+                      "fieldName": "Origin",
+                      "doCreate": false,
+                      "doFind": false,
+                      "label": "Origin"
+                    }]
+                  }]
         
                 embedded_svc.init(
                     'https://turningpointau--dev.sandbox.my.salesforce.com',
