@@ -60,7 +60,32 @@
                     Age_Range__c: '0 - 14'
                 };
 
-                embedded_svc.settings.extraPrechatInfo = [{
+                embedded_svc.snippetSettingsFile.extraPrechatInfo = [{
+                    "entityName": "Contact",
+                    "showOnCreate": true,
+                    "linkToEntityName": "Case",
+                    "linkToEntityField": "ContactId",
+                    "saveToTranscript": "ContactId",
+                    "entityFieldMaps": [{
+                      "doCreate": false,
+                      "doFind": false,
+                      "fieldName": "FirstName",
+                      "isExactMatch": false,
+                      "label": "First Name"
+                    }, {
+                      "doCreate": false,
+                      "doFind": false,
+                      "fieldName": "LastName",
+                      "isExactMatch": false,
+                      "label": "Last Name"
+                    }, {
+                      "doCreate": false,
+                      "doFind": true,
+                      "fieldName": "Email_and_Record_Type__c",
+                      "isExactMatch": true,
+                      "label": "Email and Record Type"
+                    }],
+                  }, {
                     "entityName": "Case",
                     "showOnCreate": true,
                     "saveToTranscript": "CaseId",
@@ -69,21 +94,15 @@
                       "fieldName": "Subject",
                       "doCreate": false,
                       "doFind": false,
-                      "label": "issue"
-                    }, {
-                      "isExactMatch": false,
-                      "fieldName": "Status",
-                      "doCreate": false,
-                      "doFind": false,
-                      "label": "Status"
+                      "label": "Subject"
                     }, {
                       "isExactMatch": false,
                       "fieldName": "Origin",
                       "doCreate": false,
                       "doFind": false,
-                      "label": "Origin"
+                      "label": "Case Origin"
                     }]
-                  }]
+                  }];
         
                 embedded_svc.init(
                     'https://turningpointau--dev.sandbox.my.salesforce.com',
