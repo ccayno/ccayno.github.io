@@ -20,69 +20,8 @@
                 margin:0px 0.25rem;
             }
         </style>
-        <!-- <style type='text/css'>
-            .embeddedServiceHelpButton .helpButton .uiButton {
-                background-color: #005290;
-                font-family: "Arial", sans-serif;
-            }
-            .embeddedServiceHelpButton .helpButton .uiButton:focus {
-                outline: 1px solid #005290;
-            }
-        </style> -->
         
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>
-            var initESW = function(gslbBaseURL) {
-                embedded_svc.settings.displayHelpButton = true; //Or false
-                embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-        
-                //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-                //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-        
-                //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-                //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-        
-                // Settings for Chat
-                //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-                    // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-                    // Returns a valid button ID.
-                //};
-                //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-                //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-                //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-        
-                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-                embedded_svc.settings.entryFeature = 'LiveAgent';
-        
-                embedded_svc.init(
-                    'https://turningpointau--dev.sandbox.my.salesforce.com',
-                    'https://turningpointau--dev.sandbox.my.site.com/directline',
-                    gslbBaseURL,
-                    '00D2O000000AZAV',
-                    'DL_Unauth_Chat_Embedded_Service',
-                    {
-                        baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/content',
-                        deploymentId: '5722O0000000Rnd',
-                        buttonId: '5732O0000000L77',
-                        baseLiveAgentURL: 'https://d.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/chat',
-                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2O0000000KfnUAE_183a5b11801',
-                        isOfflineSupportEnabled: false
-                    }
-                );
-            };
-        
-            if (!window.embedded_svc) {
-                var s = document.createElement('script');
-                s.setAttribute('src', 'https://turningpointau--dev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-                s.onload = function() {
-                    initESW(null);
-                };
-                document.body.appendChild(s);
-            } else {
-                initESW('https://service.force.com');
-            }
-        </script>
-        <!-- <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
         <script type='text/javascript'>           
             window.addEventListener("message", receiveMessage, false);
             function receiveMessage(event) {
@@ -148,6 +87,6 @@
             } else {
                 initESW('https://service.force.com');
             }
-        </script> -->
+        </script>
     </body>
 </html>
