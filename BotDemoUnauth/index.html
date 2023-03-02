@@ -60,9 +60,9 @@
                     Age_Range__c: '0 - 14'
                 };
 
-                embedded_svc.snippetSettingsFile.extraPrechatInfo = [{
+                embedded_svc.settings.extraPrechatInfo = [{
                     "entityName": "Contact",
-                    "showOnCreate": true,
+                    "showOnCreate": false,
                     "linkToEntityName": "Case",
                     "linkToEntityField": "ContactId",
                     "saveToTranscript": "ContactId",
@@ -80,14 +80,14 @@
                       "label": "Last Name"
                     }, {
                       "doCreate": false,
-                      "doFind": true,
+                      "doFind": false,
                       "fieldName": "Email_and_Record_Type__c",
-                      "isExactMatch": true,
+                      "isExactMatch": false,
                       "label": "Email and Record Type"
                     }],
                   }, {
                     "entityName": "Case",
-                    "showOnCreate": true,
+                    "showOnCreate": false,
                     "saveToTranscript": "CaseId",
                     "entityFieldMaps": [{
                       "isExactMatch": false,
