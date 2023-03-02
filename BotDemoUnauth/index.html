@@ -63,8 +63,14 @@
                 embedded_svc.settings.extraPrechatInfo = [{
                     "entityName": "Case",
                     "showOnCreate": false,
-                    "saveToTranscript": "",
+                    "saveToTranscript": "CaseId",
                     "entityFieldMaps": [{
+                      "isExactMatch": false,
+                      "fieldName": "Id",
+                      "doCreate": false,
+                      "doFind": false,
+                      "label": "Id"
+                    }, {
                       "isExactMatch": false,
                       "fieldName": "Subject",
                       "doCreate": false,
