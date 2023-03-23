@@ -57,6 +57,9 @@
                 border-radius: 32px;
                 width: 130px;
             }
+            .custom-button:hover{
+                background: #40a5c6;
+            }
         </style>
 
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
@@ -70,7 +73,7 @@
             Array.prototype.forEach.call(els, function(el) {
                 el.addEventListener('click', chatHandler);
             });
-                 
+
             window.addEventListener("message", receiveMessage, false);
             function receiveMessage(event) {
                 var payload = event.data;
