@@ -3,7 +3,11 @@
 <html>
     <body>
         <h1>Gambling Help Online</h1>
-        <button class="custom-button">Hi, I am a custom button. Click me to start bot.</button>
+        <div class="custom-button-wrapper">
+            <div class="custom-button-label">Chat a free now with a professional anonymously.</div>
+            <div class="custom-button">START CHAT</div>
+        </div>
+        
         <style type='text/css'>
             .embeddedServiceHelpButton .helpButton .uiButton {
                 background-color: #1B7986;
@@ -12,6 +16,8 @@
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
                 outline: 1px solid #1B7986;
             }
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
             ul.slds-carousel__indicators{
                 display:flex;
                 margin:0.5rem 0px;
