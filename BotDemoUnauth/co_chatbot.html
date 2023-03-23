@@ -11,6 +11,8 @@
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
                 outline: 1px solid #862A83;
             }
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
             ul.slds-carousel__indicators{
                 display:flex;
                 margin:0.5rem 0px;
@@ -28,10 +30,47 @@
             .avatar {
                 bottom: 1px !important;
             } 
+            h1 {
+                font-family: Arial;
+                font-weight: bold;
+            }
+            .custom-button-wrapper {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 20px;
+                margin: 20px;
+                background: #862A83;
+                color: white;
+                font-family: Arial;
+                width: 150px;
+                border-radius: 12px;
+                font-weight: bold;
+            }
+            .custom-button {
+                cursor: pointer;
+                color: #862A83;
+                background: white;
+                text-align: center;
+                padding: 10px;
+                margin: 10px auto 0;
+                border-radius: 32px;
+                width: 130px;
+            }
         </style>
 
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>           
+        <script type='text/javascript'>     
+            const chatHandler = function() {
+                if (window.embedded_svc !== 'undefined') {
+                    window.embedded_svc.onHelpButtonClick();
+                }
+            };
+            const els = document.getElementsByClassName('custom-button');
+            Array.prototype.forEach.call(els, function(el) {
+                el.addEventListener('click', chatHandler);
+            });
+                 
             window.addEventListener("message", receiveMessage, false);
             function receiveMessage(event) {
                 var payload = event.data;
