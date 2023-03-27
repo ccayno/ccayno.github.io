@@ -16,8 +16,10 @@
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
                 outline: 1px solid #1B7986;
             }
+            /*
             .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
             .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
+            */
             ul.slds-carousel__indicators{
                 display:flex;
                 margin:0.5rem 0px;
@@ -39,6 +41,7 @@
                 font-family: Arial;
                 font-weight: bold;
             }
+            /*
             .custom-button-wrapper {
                 position: absolute;
                 bottom: 0;
@@ -66,10 +69,12 @@
                 background: #07494A;
                 color: white;
             }
+            */
         </style>
         
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
         <script type='text/javascript'>    
+            /*
             const chatHandler = function() {
                 if (window.embedded_svc !== 'undefined') {
                     window.embedded_svc.onHelpButtonClick();
@@ -79,6 +84,7 @@
             Array.prototype.forEach.call(els, function(el) {
                 el.addEventListener('click', chatHandler);
             });
+            */
             
             window.addEventListener("message", receiveMessage, false);
             function receiveMessage(event) {
