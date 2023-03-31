@@ -1,0 +1,23 @@
+<html>
+<h1>GHO Chat Enhanced Bot</h1>
+
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = ''; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00D2O000000AZAV',
+				'GHO_Chatbot_Messaging',
+				'https://turningpointau--dev.sandbox.my.site.com/ESWGHOChatbotMessaging1680230565930',
+				{
+					scrt2URL: 'https://turningpointau--dev.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://turningpointau--dev.sandbox.my.site.com/ESWGHOChatbotMessaging1680230565930/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</html>
