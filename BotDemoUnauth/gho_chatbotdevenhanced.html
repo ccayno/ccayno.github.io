@@ -6,10 +6,10 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.settings.prepopulatedPrechatFields = {
-                Subject: 'This is a demo case subject from Flint',
-                Client_type: 'Self'
-            };
+			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+				"Subject" : "This is a demo case subject from Flint",
+        		"Client_type" : "Self"
+			});
 
 			embeddedservice_bootstrap.init(
 				'00D2O000000AZAV',
