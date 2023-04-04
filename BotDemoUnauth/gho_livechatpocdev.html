@@ -2,11 +2,36 @@
     <h1>Gambling Help Online Live Chat Unauth POC</h1>
     <style type='text/css'>
         .embeddedServiceHelpButton .helpButton .uiButton {
-            background-color: #005290;
+            background-color: #1B7986;
             font-family: "Arial", sans-serif;
         }
         .embeddedServiceHelpButton .helpButton .uiButton:focus {
-            outline: 1px solid #005290;
+            outline: 1px solid #1B7986;
+        }
+        /*
+        .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+        .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
+        */
+        ul.slds-carousel__indicators{
+            display:flex;
+            margin:0.5rem 0px;
+        }
+        li.slds-carousel__indicator{
+            display:flex;
+            margin:0px 0.25rem;
+        }
+        .chasitor.chat-content a {
+            color: white;
+        }           
+        .chasitor.chat-content {
+            background: #1B7986 !important;
+        }
+        .avatar {
+            bottom: 1px !important;
+        } 
+        h1 {
+            font-family: Arial;
+            font-weight: bold;
         }
     </style>
     
@@ -16,7 +41,9 @@
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = 'en'; //For example, enter 'en' or 'en-US'
     
-            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.defaultMinimizedText = 'Can we help?'; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.widgetWidth = "500px"; //(Defaults to 320px)
+            embedded_svc.settings.chatbotAvatarImgURL = "data:image/png;base64,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";
             //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
     
             //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
@@ -30,9 +57,42 @@
             //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
             //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
             //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+            embedded_svc.settings.extraPrechatInfo = [{
+                "entityName": "Contact",
+                "showOnCreate": true,
+                "linkToEntityName": "Case",
+                "linkToEntityField": "ContactId",
+                "saveToTranscript": "ContactId",
+                "entityFieldMaps": [{
+                    "doCreate": false,
+                    "doFind": false,
+                    "fieldName": "FirstName",
+                    "isExactMatch": false,
+                    "label": "First Name"
+                }, {
+                    "doCreate": false,
+                    "doFind": false,
+                    "fieldName": "LastName",
+                    "isExactMatch": false,
+                    "label": "Last Name"
+                }, {
+                    "doCreate": false,
+                    "doFind": true,
+                    "fieldName": "Email_and_Record_Type__c",
+                    "isExactMatch": true,
+                    "label": "Email and Record Type"
+                }],
+                }
+            ];
     
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
+
+            embedded_svc.settings.prepopulatedPrechatFields = {
+                Subject: 'This is a demo case subject from Flint',
+                Client_type__c: 'Self'
+            };
     
             embedded_svc.init(
                 'https://turningpointau--dev.sandbox.my.salesforce.com',
