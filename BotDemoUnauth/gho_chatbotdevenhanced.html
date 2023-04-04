@@ -6,6 +6,11 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
 
+			embedded_svc.settings.prepopulatedPrechatFields = {
+                Subject: 'This is a demo case subject from Flint',
+                Client_type__c: 'Self'
+            };
+
 			embeddedservice_bootstrap.init(
 				'00D2O000000AZAV',
 				'GHO_Chatbot_Messaging',
