@@ -16,8 +16,8 @@
 <h1>DirectLine Online - Web-to-Case - Mock</h1>
 <form action="https://turningpointau--dev.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
 
-    <input type=hidden name='captcha_settings' value='{"keyname":"Web_to_Case_Recaptcha_v2","fallback":"true","orgId":"00D2O000000AZAV","ts":""}'>
-    <input type=hidden name="orgid" value="00D2O000000AZAV">
+    <input type=hidden name='captcha_settings' value='{"keyname":"TPWebToCaseReCAPTCHA","fallback":"true","orgId":"00DAD000000rd4r","ts":""}'>
+    <input type=hidden name="orgid" value="00DAD000000rd4r">
     <input type=hidden name="retURL" value="https://www.directline.org.au/">
 
     <!--  ----------------------------------------------------------------------  -->
@@ -28,19 +28,19 @@
     <!--  value="dwittgens@deloitte.com.au">                                      -->
     <!--  ----------------------------------------------------------------------  -->
 
-    <input type=hidden name="recordType" value="0122O0000026SOW"> <!-- AOD Support, change for different env -->
+    <input type=hidden name="recordType" value="012AD0000008l8D"> <!-- AOD Support, change for different env -->
 
     <input type=hidden name="00N4a000000QAgQ" value="DirectLine Online"> <!-- AOD Service custom field, different for each env -->
 
     <input type=hidden name="status" value="Open">
 
-    <input type=hidden name="00N2O00000KUGQ1" value="Feedback"> <!--Request Type, custom field ID used (change per env)-->
+    <input type=hidden name="00NAD000000sZXJ" value="Feedback"> <!--Request Type, custom field ID used (change per env)-->
 
     <label for="name">Name</label><input id="name" maxlength="80" name="name" size="20" type="text" required /><br>
 
     <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" required /><br>
 
-    What is your enquiry about?<select id="00N2O00000Kurqb" name="00N2O00000Kurqb" title="Enquiry Type" required>
+    What is your enquiry about?<select id="00NAD000000sZXB" name="00NAD000000sZXB" title="Enquiry Type" required>
         <option value="">--None--</option>
         <option value="Technical problems (login or usability issue)">Technical problems (login or usability issue)
         </option>

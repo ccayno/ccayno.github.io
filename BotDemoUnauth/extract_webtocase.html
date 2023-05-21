@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function extractIds() {
+      var htmlContent = document.getElementById('htmlContent').value;
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(htmlContent, 'text/html');
+
+      var ids = {};
+
+      // Extract ids from captcha_settings
+      var captchaSettingsInput = doc.querySelector('input[name="captcha_settings"]');
+      if (captchaSettingsInput) {
+        var captchaSettings = JSON.parse(captchaSettingsInput.value);
+        ids.keyname = captchaSettings.keyname;
+        ids.orgId = captchaSettings.orgId;
+      }
+
+      // Extract id for AOD Support from recordType
+      var recordTypeSelect = doc.getElementById('recordType');
+      if (recordTypeSelect) {
+        var aodSupportOption = Array.from(recordTypeSelect.options).find(function(option) {
+          return option.textContent.trim() === 'AOD Support';
+        });
+        if (aodSupportOption) {
+          ids.recordType = aodSupportOption.value + ' (AOD Support)';
+        }
+      }
+
+      // Extract ids from other fields
+      var inputElements = doc.querySelectorAll('select[title], input[title]');
+      inputElements.forEach(function(element) {
+        var fieldName = element.getAttribute('title');
+        var id = element.id;
+        ids[fieldName] = id;
+      });
+
+      console.log(ids);
+
+      // Display the extracted IDs in HTML
+      var outputElement = document.getElementById('output');
+      if (outputElement) {
+        var formattedOutput = JSON.stringify(ids, null, 2);
+        outputElement.textContent = formattedOutput;
+      }
+    }
+  </script>
+</head>
+<body>
+  <textarea id="htmlContent" rows="10" cols="50" placeholder="Paste the HTML content here"></textarea><br>
+  <button onclick="extractIds()">Extract IDs</button>
+  <pre id="output"></pre>
+</body>
+</html>
