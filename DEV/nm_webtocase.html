@@ -15,6 +15,9 @@
         } 
         return true;
     }
+    function enabledButton(){
+        document.getElementById("salesforcebutton").disabled = false;
+    }
 </script>
 
 <!--  ----------------------------------------------------------------------  -->
@@ -78,7 +81,7 @@
     <label for="description">Please enter your message</label><textarea name="description" required></textarea><br>
 
     <input type="hidden" id="external" name="external" value="1" /><br>
-    <div class="g-recaptcha" data-sitekey="6Ld0Bp0lAAAAAOd0p8KOawjJUoPPEMlY0E3jlK0c"></div><br>
-    <input type="submit" name="submit">
+    <div class="g-recaptcha" data-sitekey="6Ld0Bp0lAAAAAOd0p8KOawjJUoPPEMlY0E3jlK0c" data-callback="enabledButton"></div><br>
+    <input type="submit" name="submit" id="salesforcebutton" disabled="disabled">
 
 </form>
