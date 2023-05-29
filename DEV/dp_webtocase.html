@@ -8,6 +8,13 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value); elems["ts"] = JSON.stringify(new Date().getTime()); document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    function callValidation() {
+        if(grecaptcha.getResponse().length == 0){
+            alert('Please click the reCAPTCHA checkbox');
+            return false;
+        } 
+        return true;
+    }
 </script>
 
 <!--  ----------------------------------------------------------------------  -->
@@ -19,7 +26,7 @@
 -->
 
 <h1>Dental Practitioner - Web-to-Case - Dev</h1>
-<form action="https://turningpointau--dev.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<form action="https://turningpointau--dev.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="return callValidation();">
 
     <input type=hidden name='captcha_settings'
         value='{"keyname":"Web_to_Case_Recaptcha_v2","fallback":"true","orgId":"00D2O000000AZAV","ts":""}'>

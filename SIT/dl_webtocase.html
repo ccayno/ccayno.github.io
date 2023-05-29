@@ -8,13 +8,20 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value); elems["ts"] = JSON.stringify(new Date().getTime()); document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    function callValidation() {
+        if(grecaptcha.getResponse().length == 0){
+            alert('Please click the reCAPTCHA checkbox');
+            return false;
+        } 
+        return true;
+    }
 </script>
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
 <h1>DirectLine Online - Web-to-Case - SIT</h1>
-<form action="https://turningpointau--sit.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<form action="https://turningpointau--sit.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="return callValidation();">
 
     <input type=hidden name='captcha_settings'
         value='{"keyname":"Web_to_Case_Recaptcha_v2","fallback":"true","orgId":"00D4Y0000008b6w","ts":""}'>
