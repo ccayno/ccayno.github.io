@@ -2,19 +2,19 @@
 
 <html>
     <body>
-        <h1>Gambling Help Online SIT</h1>
+        <h1>Counselling Online Mock</h1>
         <!-- <div class="custom-button-wrapper">
             <div class="custom-button-label">Chat a free now with a professional anonymously.</div>
             <div class="custom-button">START CHAT</div>
         </div> -->
-        
+
         <style type='text/css'>
             .embeddedServiceHelpButton .helpButton .uiButton {
-                background-color: #1B7986;
+                background-color: #862A83;
                 font-family: "Arial", sans-serif;
             }
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
-                outline: 1px solid #1B7986;
+                outline: 1px solid #862A83;
             }
             /*
             .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
@@ -32,7 +32,7 @@
                 color: white;
             }           
             .chasitor.chat-content {
-                background: #1B7986 !important;
+                background: #862A83 !important;
             }
             .avatar {
                 bottom: 1px !important;
@@ -48,7 +48,7 @@
                 right: 0;
                 padding: 20px;
                 margin: 20px;
-                background: #1B7986;
+                background: #862A83;
                 color: white;
                 font-family: Arial;
                 width: 150px;
@@ -57,7 +57,7 @@
             }
             .custom-button {
                 cursor: pointer;
-                color: #1B7986;
+                color: #862A83;
                 background: white;
                 text-align: center;
                 padding: 10px;
@@ -66,14 +66,14 @@
                 width: 130px;
             }
             .custom-button:hover{
-                background: #07494A;
+                background: #40a5c6;
                 color: white;
             }
             */
         </style>
-        
+
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>    
+        <script type='text/javascript'>     
             /*
             const chatHandler = function() {
                 if (window.embedded_svc !== 'undefined') {
@@ -85,7 +85,7 @@
                 el.addEventListener('click', chatHandler);
             });
             */
-            
+
             window.addEventListener("message", receiveMessage, false);
             function receiveMessage(event) {
                 var payload = event.data;
@@ -98,15 +98,15 @@
             var initESW = function(gslbBaseURL) {
                 embedded_svc.settings.displayHelpButton = true; //Or false
                 embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-        
+
                 embedded_svc.settings.defaultMinimizedText = 'Can we help?'; //(Defaults to Chat with an Expert)
                 embedded_svc.settings.widgetWidth = "500px"; //(Defaults to 320px)
                 
                 //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-        
+
                 //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
                 //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-        
+
                 // Settings for Chat
                 //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
                     // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
@@ -143,35 +143,31 @@
                     }],
                   }
                 ];
-        
+
                 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
                 embedded_svc.settings.entryFeature = 'LiveAgent';
 
-                embedded_svc.settings.prepopulatedPrechatFields = {
-                    Subject: 'This is a demo case subject from Flint',
-                    Client_type__c: 'Self'
-                };
-        
+
                 embedded_svc.init(
-                    'https://turningpointau--sit.sandbox.my.salesforce.com',
-                    'https://community-stage.gamblinghelponline.org.au/',
+                    'https://turningpointau--mock.sandbox.my.salesforce.com',
+                    'https://turningpointau--mock.sandbox.my.site.com/communitycounsellingonline',
                     gslbBaseURL,
-                    '00D4Y0000008b6w',
-                    'GHO_Chatbot_Default_Values',
+                    '00D9t000000mtNB',
+                    'CO_Chatbot_Embedded_Service',
                     {
                         baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/content',
-                        deploymentId: '5729r0000005xM2',
-                        buttonId: '5739r0000002b8M',
+                        deploymentId: '5729t000000aq1i',
+                        buttonId: '5739t0000009UwX',
                         baseLiveAgentURL: 'https://d.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/chat',
-                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I9r00000018TOEAY_1870c92a28c',
+                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I9r00000018TNEAY_1870c937109',
                         isOfflineSupportEnabled: false
                     }
                 );
             };
-        
+
             if (!window.embedded_svc) {
                 var s = document.createElement('script');
-                s.setAttribute('src', 'https://turningpointau--sit.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.setAttribute('src', 'https://turningpointau--mock.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
                 s.onload = function() {
                     initESW(null);
                 };
