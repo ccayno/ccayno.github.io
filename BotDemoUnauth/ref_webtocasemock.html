@@ -8,26 +8,16 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
      function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
-     function callValidation() {
-        if(grecaptcha.getResponse().length == 0){
-            alert('Please click the reCAPTCHA checkbox');
-            return false;
-        } 
-        return true;
-    }
-    function enabledButton(){
-        document.getElementById("salesforcebutton").disabled = false;
-    }
     </script>
     
     <!--  ----------------------------------------------------------------------  -->
     <!--  NOTE: Please add the following <FORM> element to your page.             -->
     <!--  ----------------------------------------------------------------------  -->
-    <h1>Reference - Web-to-Case - Mock</h1>
-    <form action="https://turningpointau--mock.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="return callValidation();">
     
-    <input type=hidden name='captcha_settings' value='{"keyname":"TPWebToCaseReCAPTCHA","fallback":"true","orgId":"00DAD000000rd4r","ts":""}'>
-    <input type=hidden name="orgid" value="00DAD000000rd4r">
+    <form action="https://turningpointau--mock.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+    
+    <input type=hidden name='captcha_settings' value='{"keyname":"TPWebToCaseReCAPTCHA","fallback":"true","orgId":"00D9t000000mtNB","ts":""}'>
+    <input type=hidden name="orgid" value="00D9t000000mtNB">
     <input type=hidden name="retURL" value="https://www.counsellingonline.org.au/">
     
     <!--  ----------------------------------------------------------------------  -->
@@ -38,15 +28,15 @@
     <!--  ----------------------------------------------------------------------  -->
     
     <label for="recordType">Case Record Type</label><select  id="recordType" name="recordType"><option value="">--None--</option><option value="0124a0000004M7k">AOD</option>
-    <option value="012AD0000008l8D">AOD Support</option>
+    <option value="0129t000000JNIf">AOD Support</option>
     <option value="012980000004K5T">Care Plan</option>
     <option value="0124a0000004M7l">DACAS</option>
     <option value="0124a0000004M7m">DDAL</option>
     <option value="0124a0000004M7n">Disposal</option>
     <option value="0124a0000004M7o">Gambling</option>
-    <option value="012AD0000008l8E">Gambling Support</option>
+    <option value="0129t000000JNIg">Gambling Support</option>
     <option value="0124a0000004M7p">N&amp;M After Hours</option>
-    <option value="012AD0000008l8F">N&amp;M and Dental Practitioner Email</option>
+    <option value="0129t000000JNIh">N&amp;M and Dental Practitioner Email</option>
     <option value="0124a0000004M7q">N&amp;M and Dental Practitioner Support</option>
     <option value="0124a0000004M7r">Pharmacotherapy</option>
     <option value="0124a0000004M7s">SafeScript Pharmaceutical Helpline</option>
@@ -74,7 +64,7 @@
     <option value="Response Received">Response Received</option>
     </select><br>
     
-    Request Type:<select  id="00NAD000000sZXJ" name="00NAD000000sZXJ" title="Request Type"><option value="">--None--</option><option value="Counselling">Counselling</option>
+    Request Type:<select  id="00N9t00000182dq" name="00N9t00000182dq" title="Request Type"><option value="">--None--</option><option value="Counselling">Counselling</option>
     <option value="Support">Support</option>
     <option value="Feedback">Feedback</option>
     <option value="Self Service">Self Service</option>
@@ -85,7 +75,7 @@
     
     <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
     
-    Enquiry Type:<select  id="00NAD000000sZXB" name="00NAD000000sZXB" title="Enquiry Type"><option value="">--None--</option><option value="Technical problems (login or usability issue)">Technical problems (login or usability issue)</option>
+    Enquiry Type:<select  id="00N9t00000182di" name="00N9t00000182di" title="Enquiry Type"><option value="">--None--</option><option value="Technical problems (login or usability issue)">Technical problems (login or usability issue)</option>
     <option value="Service feedback (compliments or complaints)">Service feedback (compliments or complaints)</option>
     <option value="General service enquiry (clarifying service, delay in response)">General service enquiry (clarifying service, delay in response)</option>
     <option value="Submitting a personal story">Submitting a personal story</option>
@@ -104,8 +94,8 @@
     
     <input type="hidden"  id="external" name="external" value="1" /><br>
     
-    <div class="g-recaptcha" data-sitekey="6Ld0Bp0lAAAAAOd0p8KOawjJUoPPEMlY0E3jlK0c" data-callback="enabledButton"></div><br>
-    <input type="submit" name="submit" id="salesforcebutton" disabled="disabled">
+    <div class="g-recaptcha" data-sitekey="6Ld0Bp0lAAAAAOd0p8KOawjJUoPPEMlY0E3jlK0c"></div><br>
+    <input type="submit" name="submit">
     
     </form>
     
