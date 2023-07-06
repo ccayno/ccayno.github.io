@@ -3,9 +3,6 @@
 <script src="/components/header.js" type="text/javascript" defer></script>
 
 <html>
-    <head>
-        <link href="https://turningpointau--dev--c.sandbox.vf.force.com/resource/1688603083000/SLDS_Min" rel="stylesheet" type="text/css"/>
-    </head>
     <header-component></header-component>
     <body>
         <div class="content">
@@ -129,6 +126,12 @@
                     embedded_svc.settings.prepopulatedPrechatFields = {
                         Origin: 'Call'
                     };
+
+                    var link = document.createElement('link');
+                    link.setAttribute('rel', 'stylesheet');
+                    link.setAttribute('type', 'text/css');
+                    link.setAttribute('href', 'https://turningpointau--dev--c.sandbox.vf.force.com/resource/1688603083000/SLDS_Min');
+                    embedded_svc.addStyleLink(link);
                 };
             
                 if (!window.embedded_svc) {
@@ -140,12 +143,6 @@
                     document.body.appendChild(s);
                 } else {
                     initESW('https://service.force.com');
-                    var link = document.createElement('link');
-                    link.setAttribute('href', 'https://turningpointau--dev--c.sandbox.vf.force.com/resource/1688603083000/SLDS_Min');
-                    link.setAttribute('rel', 'stylesheet');
-                    link.setAttribute('type', 'text/css');
-
-                    document.head.appendChild(link);
                 }
             </script>
             <!-- Copy and paste additionalStyling.css into the style tag -->
