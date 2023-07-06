@@ -29,7 +29,12 @@
                 0 32px 64px rgba(0, 0, 0, 0.1);
         user-select: none;
         cursor: pointer;
-        margin: 1rem 0;
+        margin: 1rem;
+        flex-basis: calc(33.33%);
+    }
+    .card-wrapper{
+        display: flex;
+        flex-wrap: wrap;
     }
     .card-title {
         font-size: 3rem;
@@ -48,9 +53,27 @@
         <ul>
             <li>
                 Web to Case
-                <div class="card" onclick="window.location.href='/DEV/col_webtocase.html'">
-                    <div class="card-title">CO</div>
-                    <div>Counselling Online Web-to-Case</div>
+                <div class="card-wrapper">
+                    <div class="card" onclick="window.location.href='/DEV/col_webtocase.html'">
+                        <div class="card-title">CO</div>
+                        <div>Counselling Online Web-to-Case</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='/DEV/nm_webtocase.html'">
+                        <div class="card-title">NM</div>
+                        <div>Nurse and Midwife Web-to-Case</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='/DEV/dp_webtocase.html'">
+                        <div class="card-title">DP</div>
+                        <div>Dental Practitioner Web-to-Case</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='/DEV/dl_webtocase.html'">
+                        <div class="card-title">DL</div>
+                        <div>DirectLine Web-to-Case</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='/DEV/gho_webtocase.html'">
+                        <div class="card-title">GHO</div>
+                        <div>Gambling Help Online Web-to-Case</div>
+                    </div>
                 </div>
             </li>
             <li>
