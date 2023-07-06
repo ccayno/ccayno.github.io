@@ -127,11 +127,7 @@
                         Origin: 'Call'
                     };
 
-                    var link = document.createElement('link');
-                    link.setAttribute('rel', 'stylesheet');
-                    link.setAttribute('type', 'text/css');
-                    link.setAttribute('href', 'https://turningpointau--dev--c.sandbox.vf.force.com/resource/1688603083000/SLDS_Min');
-                    embedded_svc.addStyleLink(link);
+                    embedded_svc.settings.externalStyles = ["SLDS_Min"];
                 };
             
                 if (!window.embedded_svc) {
