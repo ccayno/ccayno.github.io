@@ -140,6 +140,12 @@
                     document.body.appendChild(s);
                 } else {
                     initESW('https://service.force.com');
+                    var link = document.createElement('link');
+                    link.setAttribute('href', 'https://turningpointau--dev--c.sandbox.vf.force.com/resource/1688603083000/SLDS_Min');
+                    link.setAttribute('rel', 'stylesheet');
+                    link.setAttribute('type', 'text/css');
+
+                    document.head.appendChild(link);
                 }
             </script>
             <!-- Copy and paste additionalStyling.css into the style tag -->
