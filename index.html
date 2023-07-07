@@ -14,11 +14,19 @@
       }
     .mock b, .sit b, .dev b {
         color: white;
-        background-color: #07494a;
         padding: 5px 10px;
         border-radius: 5px;
         text-transform: uppercase;
         font-size: 1.618rem;
+    }
+    .dev b, .dev-tile{
+        background-color: #1e3667;
+    }
+    .sit b, .sit-tile{
+        background-color: #7b92ee;
+    }
+    .mock b, .mock-tile{
+        background-color: #e9a4dd;
     }
     .wrapper {
         display: flex;
@@ -105,7 +113,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Web to Case</div>
-                    <div class="card-section">DEV</div>
+                    <div class="card-section dev-tile">DEV</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/DEV/col_webtocase.html'">
@@ -133,7 +141,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Standard Bots</div>
-                    <div class="card-section">DEV</div>
+                    <div class="card-section dev-tile">DEV</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_chatbotdev.html'">
@@ -149,7 +157,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Enhanced Bots</div>
-                    <div class="card-section">DEV</div>
+                    <div class="card-section dev-tile">DEV</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_chatbotdevenhanced.html'">
@@ -165,7 +173,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Unauthenticated Live Chats</div>
-                    <div class="card-section">DEV</div>
+                    <div class="card-section dev-tile">DEV</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_unauthlivechatdev.html'">
@@ -187,7 +195,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Web to Case</div>
-                    <div class="card-section">SIT</div>
+                    <div class="card-section sit-tile">SIT</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/SIT/col_webtocase.html'">
@@ -215,7 +223,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Standard Bots</div>
-                    <div class="card-section">SIT</div>
+                    <div class="card-section sit-tile">SIT</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_chatbotsit.html'">
@@ -231,7 +239,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Enhanced Bots</div>
-                    <div class="card-section">SIT</div>
+                    <div class="card-section sit-tile">SIT</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_chatbotsitenhanced.html'">
@@ -247,7 +255,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Unauthenticated Live Chats</div>
-                    <div class="card-section">SIT</div>
+                    <div class="card-section sit-tile">SIT</div>
                 </div>                
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_unauthlivechatsit.html'">
@@ -269,7 +277,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Web to Case</div>
-                    <div class="card-section">MOCK</div>
+                    <div class="card-section mock-tile">MOCK</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/col_webtocasemock.html'">
@@ -297,7 +305,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Standard Bots</div>
-                    <div class="card-section">MOCK</div>
+                    <div class="card-section mock-tile">MOCK</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_chatbotmock.html'">
@@ -313,7 +321,7 @@
             <li>
                 <div class="card-section-wrapper">
                     <div class="card-section">Unauthenticated Live Chats</div>
-                    <div class="card-section">MOCK</div>
+                    <div class="card-section mock-tile">MOCK</div>
                 </div>
                 <div class="card-wrapper">
                     <div class="card" onclick="window.location.href='/BotDemoUnauth/gho_unauthlivechatmock.html'">
