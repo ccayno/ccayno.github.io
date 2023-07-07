@@ -47,6 +47,7 @@
         margin: 1rem;
         flex-basis: calc(33.33%);
         background: white;
+        transition: transform 0.3s ease-in-out;
     }
     .card div:nth-child(2){
         background: #07494A;
@@ -56,9 +57,13 @@
         font-weight: bold;
         margin-top: 10px;
     }
+    @keyframes breathing-animation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
     .card:hover{
-        transform: scale(1.05);
-        transition: 0.3s ease;
+        animation: breathing-animation 1s infinite;
     }
     .card-wrapper{
         display: flex;
