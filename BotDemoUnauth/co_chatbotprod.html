@@ -1,0 +1,180 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+<html>
+    <body>
+        <h1>Counselling Online Prod</h1>
+        <!-- <div class="custom-button-wrapper">
+            <div class="custom-button-label">Chat a free now with a professional anonymously.</div>
+            <div class="custom-button">START CHAT</div>
+        </div> -->
+
+        <style type='text/css'>
+            .embeddedServiceHelpButton .helpButton .uiButton {
+                background-color: #862A83;
+                font-family: "Arial", sans-serif;
+            }
+            .embeddedServiceHelpButton .helpButton .uiButton:focus {
+                outline: 1px solid #862A83;
+            }
+            /*
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+            .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
+            */
+            ul.slds-carousel__indicators{
+                display:flex;
+                margin:0.5rem 0px;
+            }
+            li.slds-carousel__indicator{
+                display:flex;
+                margin:0px 0.25rem;
+            }
+            .chasitor.chat-content a {
+                color: white;
+            }           
+            .chasitor.chat-content {
+                background: #862A83 !important;
+            }
+            .avatar {
+                bottom: 1px !important;
+            } 
+            h1 {
+                font-family: Arial;
+                font-weight: bold;
+            }
+            /*
+            .custom-button-wrapper {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 20px;
+                margin: 20px;
+                background: #862A83;
+                color: white;
+                font-family: Arial;
+                width: 150px;
+                border-radius: 12px;
+                font-weight: bold;
+            }
+            .custom-button {
+                cursor: pointer;
+                color: #862A83;
+                background: white;
+                text-align: center;
+                padding: 10px;
+                margin: 10px auto 0;
+                border-radius: 32px;
+                width: 130px;
+            }
+            .custom-button:hover{
+                background: #40a5c6;
+                color: white;
+            }
+            */
+        </style>
+
+        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+        <script type='text/javascript'>     
+            /*
+            const chatHandler = function() {
+                if (window.embedded_svc !== 'undefined') {
+                    window.embedded_svc.onHelpButtonClick();
+                }
+            };
+            const els = document.getElementsByClassName('custom-button');
+            Array.prototype.forEach.call(els, function(el) {
+                el.addEventListener('click', chatHandler);
+            });
+            */
+
+            window.addEventListener("message", receiveMessage, false);
+            function receiveMessage(event) {
+                var payload = event.data;
+
+                if(payload && payload.type === 'chasitor.sendMessage') {
+                    embedded_svc.postMessage('chasitor.sendMessage', payload.message);
+                }
+            };
+
+            var initESW = function(gslbBaseURL) {
+                embedded_svc.settings.displayHelpButton = true; //Or false
+                embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+                embedded_svc.settings.defaultMinimizedText = 'Can we help?'; //(Defaults to Chat with an Expert)
+                embedded_svc.settings.widgetWidth = "500px"; //(Defaults to 320px)
+                
+                //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+                //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+                //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+                // Settings for Chat
+                //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                    // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                    // Returns a valid button ID.
+                //};
+                //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+                //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+                //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+                embedded_svc.settings.extraPrechatInfo = [{
+                    "entityName": "Contact",
+                    "showOnCreate": true,
+                    "linkToEntityName": "Case",
+                    "linkToEntityField": "ContactId",
+                    "saveToTranscript": "ContactId",
+                    "entityFieldMaps": [{
+                      "doCreate": false,
+                      "doFind": false,
+                      "fieldName": "FirstName",
+                      "isExactMatch": false,
+                      "label": "First Name"
+                    }, {
+                      "doCreate": false,
+                      "doFind": false,
+                      "fieldName": "LastName",
+                      "isExactMatch": false,
+                      "label": "Last Name"
+                    }, {
+                      "doCreate": false,
+                      "doFind": true,
+                      "fieldName": "Email_and_Record_Type__c",
+                      "isExactMatch": true,
+                      "label": "Email and Record Type"
+                    }],
+                  }
+                ];
+
+                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+                embedded_svc.settings.entryFeature = 'LiveAgent';
+
+
+                embedded_svc.init(
+                    'https://turningpointau.my.salesforce.com',
+                    'https://community.counsellingonline.org.au/',
+                    gslbBaseURL,
+                    '00D4a0000008aZt',
+                    'CO_Chatbot_Embedded_Service',
+                    {
+                        baseLiveAgentContentURL: 'https://c.la1-core1.sfdc-vwfla6.salesforceliveagent.com/content',
+                        deploymentId: '57298000000005O',
+                        buttonId: '57398000000006u',
+                        baseLiveAgentURL: 'https://d.la1-core1.sfdc-vwfla6.salesforceliveagent.com/chat',
+                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I9r00000018TNEAY_1870c937109',
+                        isOfflineSupportEnabled: false
+                    }
+                );
+            };
+
+            if (!window.embedded_svc) {
+                var s = document.createElement('script');
+                s.setAttribute('src', 'https://turningpointau.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.onload = function() {
+                    initESW(null);
+                };
+                document.body.appendChild(s);
+            } else {
+                initESW('https://service.force.com');
+            }
+        </script>
+    </body>
+</html>

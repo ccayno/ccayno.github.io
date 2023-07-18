@@ -1,0 +1,78 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+     function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+     function callValidation() {
+        if(grecaptcha.getResponse().length == 0){
+            alert('Please click the reCAPTCHA checkbox');
+            return false;
+        } 
+        return true;
+    }
+    function enabledButton(){
+        document.getElementById("salesforcebutton").disabled = false;
+    }
+    </script>
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: Please add the following <FORM> element to your page.             -->
+    <!--  ----------------------------------------------------------------------  -->
+    <h1>Counselling Online - Web-to-Case - Mock</h1>
+    <form action="https://turningpointau--mock.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="return callValidation();">
+    
+        <input type=hidden name='captcha_settings'
+            value='{"keyname":"TPWebToCaseReCAPTCHA","fallback":"true","orgId":"00D4a0000008aZt","ts":""}'>
+        <input type=hidden name="orgid" value="00D4a0000008aZt">
+        <input type=hidden name="retURL" value="https://www.counsellingonline.org.au/">
+    
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+        <!--  <input type="hidden" name="debug" value=1>                              -->
+        <!--  <input type="hidden" name="debugEmail"                                  -->
+        <!--  value="dwittgens@deloitte.com.au">                                      -->
+        <!--  ----------------------------------------------------------------------  -->
+    
+        <!-- AOD Support, change for different env -->
+        <input type=hidden name="recordType" value="012980000004MRW"> 
+    
+        <!-- AOD Service custom field, different for each env -->
+        <input type=hidden name="00N4a000000QAgQ" value="CounsellingOnline (National)"> 
+    
+        <input type=hidden name="status" value="Open">
+    
+        <!--Request Type, custom field ID used (change per env)-->
+        <input type=hidden name="00N98000000VlXa" value="Feedback"> 
+    
+        <label for="name">Name</label><input id="name" maxlength="80" name="name" size="20" type="text" required/><br>
+    
+        <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" required/><br>
+    
+        <!-- Enquiry type, ID changes depending on env -->
+        <label for="00N98000000VlXS">What is your enquiry about?</label><select id="00N98000000VlXS" name="00N98000000VlXS" title="Enquiry Type" required>
+            <option value="">--None--</option>
+            <option value="Technical problems (login or usability issue)">Technical problems (login or usability issue)
+            </option>
+            <option value="Service feedback (compliments or complaints)">Service feedback (compliments or complaints)
+            </option>
+            <option value="General service enquiry (clarifying service, delay in response)">General service enquiry
+                (clarifying service, delay in response)</option>
+            <option value="Submitting a personal story">Submitting a personal story</option>
+            <option value="Other">Other</option>
+        </select><br>
+    
+        <label for="description">Please enter your message</label><textarea name="description" required></textarea><br>
+    
+        <input type="hidden" id="external" name="external" value="1" /><br>
+    
+        <div class="g-recaptcha" data-sitekey="6Ld0Bp0lAAAAAOd0p8KOawjJUoPPEMlY0E3jlK0c" data-callback="enabledButton"></div><br>
+        <input type="submit" name="submit" id="salesforcebutton" disabled="disabled">
+    
+    </form>
+    
